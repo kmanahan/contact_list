@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+    has_many :patients
     has_many :nurse_rooms
     has_many :nurses, through: :nurse_rooms
     has_many :doctor_rooms

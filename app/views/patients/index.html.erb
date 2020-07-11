@@ -1,0 +1,6 @@
+<h2>Room: <br><%= @room.room_number %></h2>
+<%= link_to "Add new patient", new_room_patient_path(@room) %>
+
+<% @room.patients.each do |patient| %>
+    <h3><%= link_to patient.room_number,  room_patient_path(patient, patient.id) %></h3>
+<% end %>

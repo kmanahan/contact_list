@@ -1,3 +1,36 @@
 class PatientsController < ApplicationController 
-    
+    def index 
+        get_room
+    end 
+
+    def show 
+        #refactor?
+        @patient = Patient.find(params[:id])
+    end 
+   
+    def new 
+        get_room
+        redirect_to rooms_path if !@room
+        @patient = Patient.new
+    end 
+     
+    def create 
+        @room = Room.find_by(id: params[:patient][:room_id])
+        @patient = Patient.new(patient_params)
+        if @patient.save
+            redirect_to room_patient_path(@room, @patient)
+        else 
+            render :new
+        end
+    end 
+
+    private 
+
+    def get_room
+        @room ||= Room.find_by(id:params[:room_id])
+    end  
+
+    def patient_params 
+        params.require(:patient).permit(:first_name, :last_name, room_id, :status, :diagnosis, :discharged, :expired )
+    end 
 end 

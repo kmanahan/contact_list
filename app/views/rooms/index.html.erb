@@ -2,6 +2,6 @@
 
 <%= link_to "Add a room", new_room_path %>
 
-<% @ooms.each do |room| %>
-    <h3><%= link_to room.name,  room_patients_path(program) %></h3>
+<% @rooms.each do |room| %>
+    <h3><%= link_to room.room_number,  room_patients_path(room) %></h3>
 <% end %> 
