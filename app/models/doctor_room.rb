@@ -1,0 +1,2 @@
+class DoctorRoom < ApplicationRecord
+end

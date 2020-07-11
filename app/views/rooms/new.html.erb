@@ -1,0 +1,10 @@
+<h2>Enter a new room to the system</h2>
+
+
+<%= form_for @room do |p| %>
+    <%= p.label :room_number %>
+    <%= p.text_field :room_number %>
+    <%= p.label :phone_number %>
+    <%= p.text_field :phone_number %>
+    <%= p.submit "Submit" %>
+<% end %>

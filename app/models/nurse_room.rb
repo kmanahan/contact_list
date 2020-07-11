@@ -1,0 +1,2 @@
+class NurseRoom < ApplicationRecord
+end

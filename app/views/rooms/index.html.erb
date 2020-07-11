@@ -1,0 +1,7 @@
+<h2>Room Index</h2>
+
+<%= link_to "Add a room", new_room_path %>
+
+<% @ooms.each do |room| %>
+    <h3><%= link_to room.name,  room_patients_path(program) %></h3>
+<% end %> 
