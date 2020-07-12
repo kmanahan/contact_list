@@ -1,13 +1,23 @@
 <h2> Add a new patient to Room: <%= @room.room_number %></h2>
-<%= form_for(@patient, url: 'newpatient') do |f| %>
+
+<%= form_for @patient do |f| %>
     <ul>
     <li><%= f.label "add a patient" %></li>
-    
-
     <li><%= f.label :first_name %></li>
     <%= f.text_field :first_name %>
+    <li><%= f.label :last_name %></li>
+    <%= f.text_field :last_name %>
+    <li><%= f.label "Assign a doctor" %></li>
+    <%= f.collection_select :doctor_ids, Doctor.all, :id, :name %><br>
+    <li><%= f.label :last_name %></li>
+    <li><%= f.label "Assign a nurse" %></li>
+    <%= f.collection_select :nurse_ids, Nurse.all, :id, :name %><br>
     <li><%= f.label "Patient Status" %></li>
     <%= f.select :status, ['stable', 'unstable'], prompt: true %>
+    <li><%= f.label "Discharged" %></li>
+    <%= f.select :expired, [['yes', true], ['no', false]], prompt: true %>
+    <li><%= f.label "Expired" %></li>
+    <%= f.select :expired, [['yes', true], ['no', false]], prompt: true %>
     <%= f.hidden_field :room_id, value: @room.id %></br></br>
     <%= f.submit %>
     </ul>
