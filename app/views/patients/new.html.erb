@@ -11,8 +11,14 @@
     <%= f.text_field :last_name %>
     <li><%= f.label "Assign a doctor" %></li>
     <%= f.collection_select :doctor_ids, Doctor.all, :id, :name %><br>
+    <li><%= f.label "Assign another doctor" %></li>
+    <%= f.collection_select :doctor_ids, Doctor.all, :id, :name %><br>
     <li><%= f.label "Assign a nurse" %></li>
     <%= f.collection_select :nurse_ids, Nurse.all, :id, :name %><br>
+    <li><%= f.label "Assign another nurse" %></li>
+    <%= f.collection_select :nurse_ids, Nurse.all, :id, :name %><br>
+    <li><%= f.label "Diagnosis" %></li>
+    <%= f.text_field :diagnosis %>
     <li><%= f.label "Patient Status" %></li>
     <%= f.select :status, ['stable', 'unstable'], prompt: true %>
     <li><%= f.label "Discharged" %></li>

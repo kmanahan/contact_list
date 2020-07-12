@@ -1,10 +1,17 @@
-<h2>Room: <br><%= @room.room_number %></h2>
-<%= link_to "Add new patient", new_room_patient_path(@room) %>
+<h2>Room: <br><%#= @room.room_number %></h2>
+<%#= link_to "Add new patient", new_room_patient_path(@room) %>
+
+<%= link_to "Discharged Patients", patients_discharged_path %>
+<%= link_to "Expired Patients", patients_expired_path %>
+
+<% @patients.each do |patient| %>
+    <li><%=patient.full_name%></li>
+<% end %>
 
 <h3>Patient List</h3>
 <div>
 
-<% @room.patients.each do |patient| %>
-    <li><%= link_to patient.full_name, patient_path(patient) %></li>
-<% end %>
+<%# @room.patients.each do |patient| %>
+    <li><%#= link_to patient.full_name, room_patient_path(patient) %></li>
+<%# end %>
 </div>

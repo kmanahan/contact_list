@@ -4,8 +4,10 @@ class PatientsController < ApplicationController
     end 
    
     def show
+        get_room
         @patient = Patient.find(params[:id])
     end 
+    
     def new 
         get_room
         redirect_to rooms_path if !@room
@@ -20,6 +22,16 @@ class PatientsController < ApplicationController
         else 
             render :new
         end
+    end 
+
+    def discharged 
+        @patients = Patient.discharged
+        render :index
+    end 
+
+    def expired 
+        @patients = Patient.expired
+        render :index
     end 
 
     private 
