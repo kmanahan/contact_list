@@ -1,2 +1,8 @@
 <h2>Patient Info</h2>
-<%= @patient.first_name %>
+<ul>
+<li>Name: <%= @patient.full_name %></li>
+<li>Room Number: <%= @patient.room.room_number %></li>
+<li>Diagnosis: <%= @patient.diagnosis %></li>
+<li>Status: <%= @patient.status %></li>
+<li>Expired: <%= @patient.expired %>
+</ul>

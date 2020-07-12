@@ -1,3 +1,14 @@
-def name 
-    self.first_name + self.last_name
-end 
+module PatientsHelper
+   
+    #create method to find patient where patient = deceased
+#     def is_deceased
+        
+#     end 
+# end 
+
+# module SequencesHelper
+#     # given a duration, this method should convert it from seconds to minutes and seconds
+#     def format_duration_to_minutes(duration)
+#         "#{duration / 60} minutes and #{duration % 60} seconds"
+#     end
+end
