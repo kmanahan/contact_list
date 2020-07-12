@@ -4,5 +4,13 @@
 <li>Room Number: <%= @patient.room.room_number %></li>
 <li>Diagnosis: <%= @patient.diagnosis %></li>
 <li>Status: <%= @patient.status %></li>
-<li>Expired: <%= @patient.expired %>
+<li>Expired: <%= @patient.expired %></li>
+<%= label_tag "Doctors: " %>
+<% @patient.doctors.each do |doctor| %>
+<li><%= doctor.name %></li>
+<% end %>
+<%= label_tag "Nurses: " %>
+<% @patient.nurses.each do |nurse| %>
+<li><%= nurse.name %></li>
+ <% end %>
 </ul>
