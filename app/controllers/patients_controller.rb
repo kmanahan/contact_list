@@ -1,6 +1,14 @@
 class PatientsController < ApplicationController 
+    before_action :check_for_logged_in
+
     def index 
         get_room
+        @patients = Patient.all
+        if params[:expired]
+            @patients.expired(params[:expired])
+        else 
+            @patients = Patient.all 
+        end
     end 
    
     def show
@@ -22,6 +30,15 @@ class PatientsController < ApplicationController
         end
     end 
 
+    def expired
+        @patient = Patient.all
+        if params[:expired]
+            @patient = expired(params[:expired])
+        else 
+            @patient = Patient.all 
+        end
+    end 
+    
     private 
 
     def get_room

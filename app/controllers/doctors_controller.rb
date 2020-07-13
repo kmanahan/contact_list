@@ -1,4 +1,6 @@
 class DoctorsController < ApplicationController 
+    before_action :check_for_logged_in
+
     def index 
         @doctors = Doctor.all
         if params[:search]
@@ -15,6 +17,6 @@ class DoctorsController < ApplicationController
     private
 
     def doctor_params 
-        params.require(:doctor).permit(:name, :search)
+        params.require(:doctor).permit(:name, :specialty, :phone_number, :search)
     end 
 end 

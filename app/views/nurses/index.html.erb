@@ -1,3 +1,4 @@
+<h1>Nurse Directory</h1>
 <% @nurses.each do |nurse| %>
-    <%= nurse.name %>
+    <%= link_to nurse.name, nurse_path(nurse) %><br>
 <% end %>

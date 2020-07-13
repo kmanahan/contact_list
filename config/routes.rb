@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   resources :users
 
   resources :rooms, only: [:index, :create, :new] do 
-    resources :patients, only: [:index, :new] 
+    resources :patients, only: [:index, :new, :show] 
   end
   resources :patients, only: [:create, :show]
   resources :doctors, only: [:index, :show]
 
-  get '/doctors/surgeon', to: 'doctors#surgeon'
-
- 
+  get '/patient/expired', to: 'patients#expired'
+  resources :nurses, only: [:index, :show]
 end 

@@ -1,5 +1,17 @@
 class NursesController < ApplicationController 
+    before_action :check_for_logged_in
+
     def index 
-        @nurses = Nurses.all 
+        @nurses = Nurse.all 
+    end 
+
+    def show 
+        @nurse = Nurse.find_by(id:params[:id])
+    end 
+
+    private 
+
+    def nurse_params 
+        params.require(:nurse).permit(:name, :title, :phone_number, :patient_id)
     end 
 end 

@@ -4,5 +4,5 @@ class User < ApplicationRecord
     validates :username, presence: true
     validates :username, uniqueness: true
 
-    scope :find_by_specialty, -> (search_specialty)(where("specailty = ?", search_speaclty))
+
 end

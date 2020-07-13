@@ -1,0 +1,7 @@
+<% patients.each do |patient| %>
+    <li>Name: <%= patient.full_name %></li>
+    <li>Diagnosis: <%= patient.diagnosis %></li>
+    <li>Status: <%= patient.status %></li>
+    <li>Deceased: <%= patient.expired %></li><br>
+    <%# show room number by room_id %>
+<% end %>

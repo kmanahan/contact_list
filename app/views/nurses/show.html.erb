@@ -1,0 +1,5 @@
+<h1><%= @nurse.name %></h1>
+<li>title: <%= @nurse.title %></li>
+<li>phone number: <%= @nurse.phone_number %><br></li>
+
+<%= render partial: '/patients', locals: {patients: @nurse.patients} %>
