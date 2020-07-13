@@ -1,7 +1,14 @@
-<h3>Find By Specialty</h3>
-<%= link_to "Surgeon", surgeon_doctors_path %>
-<%#= link_to "Pediatrics", doctors_pediatrics_path %>
+<%= form_tag("/doctors", method: "get") do %>
+    <%= label_tag(:search, "Find a doctor by specialty:") %>
+    <%= text_field_tag(:search) %>
+    <%= submit_tag("Search") %>
+  <% end %>
 
+  <% if @doctors.blank? %>
+  <h4>Could not find <%= params[:search] %></h4>
+<% end %>
+
+<h2>Doctor Directory</h2>
 <% @doctors.each do |doctor| %>
     <%= link_to doctor.name, doctor_path(doctor) %><br>
 <% end %>

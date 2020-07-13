@@ -1,4 +1,7 @@
 <h1><%= @doctor.name %><br></h1>
+<li>specialty: <%= @doctor.specialty %><br></li>
+<li>phone number: <%= @doctor.phone_number %><br></li>
+
 <h3>Patients: </h3>
 <ul>
 <% @doctor.patients.each do |patient| %>
@@ -6,5 +9,6 @@
     <li>Diagnosis: <%= patient.diagnosis %></li>
     <li>Status: <%= patient.status %></li>
     <li>Deceased: <%= patient.expired %></li><br>
+    <%# show room number by room_id %>
 <% end %>
 </ul>
