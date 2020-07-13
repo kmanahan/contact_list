@@ -5,26 +5,38 @@ class SessionsController < ApplicationController
         render :login
     end 
 
-    def create
+      def create
         @user = User.find_by(username: params[:user][:username])
-        if @user && @user.authenticate(params[:user][:password])
-          session[:user_id] = @user.id
-          redirect_to rooms_path
-        else
-          flash[:error] = "username or password was incorrect"
-          redirect_to '/login'
+      if @user && @user.authenticate(params[:user][:password])
+        session[:user_id] = @user.id
+        redirect_to pets_path
+      else
+        flash[:error] = "Sorry, your username or password was incorrect"
+        redirect_to '/login'
         end
       end
-    
-    
 
+    def gitcreate
+      @user = User.find_or_create_by(uid: auth['uid']) do |u|
+        u.username = auth['info']['name']
+        u.email = auth['info']['email']
+        u.password = auth['uid']   # Secure Random Hex
+      end
+  
+      session[:user_id] = @user.id
+  
+      redirect_to '/rooms'
+    end
+  
+      
+    
     def home
     end
 
     def destroy
         session.clear
         redirect_to '/'
-      end
+    end
 
     private 
 
@@ -33,3 +45,5 @@ class SessionsController < ApplicationController
     end
 
 end 
+
+

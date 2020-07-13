@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ContactList</title>
+    <title>Hospital Directory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,7 +10,16 @@
   </head>
 
   <body>
-  <%= link_to 'Logout', logout_path, method: :delete %>
+  <% if logged_in? %>
+    <nav class="navbar">
+      <%= link_to 'Log Out', logout_path, method: :delete, class: 'navlink' %>
+      <%= link_to 'Doctors', doctors_path, class: 'navlink'%>
+      <%= link_to 'Nurses', nurses_path, class: 'navlink' %>
+      <%= link_to 'Rooms', rooms_path, class: 'navlink' %>
+    </nav>
+    <% end %>
+
+    <div class="container">
     <%= yield %>
   </body>
 </html>

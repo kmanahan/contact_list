@@ -7,7 +7,7 @@ ruby '2.6.1'
 gem 'thin'
 gem 'dotenv-rails'
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'

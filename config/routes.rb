@@ -14,4 +14,5 @@ Rails.application.routes.draw do
 
   get '/patient/expired', to: 'patients#expired'
   resources :nurses, only: [:index, :show]
+  get '/auth/:provider/callback', to: 'sessions#gitcreate'
 end 

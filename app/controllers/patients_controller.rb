@@ -32,8 +32,8 @@ class PatientsController < ApplicationController
 
     def expired
         @patient = Patient.all
-        if params[:expired]
-            @patient = expired(params[:expired])
+        if params[:id]
+            @patient = expired(params[:id])
         else 
             @patient = Patient.all 
         end
