@@ -1,0 +1,10 @@
+<h1><%= @doctor.name %><br></h1>
+<h3>Patients: </h3>
+<ul>
+<% @doctor.patients.each do |patient| %>
+    <li>Name: <%= patient.full_name %></li>
+    <li>Diagnosis: <%= patient.diagnosis %></li>
+    <li>Status: <%= patient.status %></li>
+    <li>Deceased: <%= patient.expired %></li><br>
+<% end %>
+</ul>

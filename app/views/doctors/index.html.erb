@@ -1,3 +1,7 @@
+<h3>Find By Specialty</h3>
+<%= link_to "Surgeon", surgeon_doctors_path %>
+<%#= link_to "Pediatrics", doctors_pediatrics_path %>
+
 <% @doctors.each do |doctor| %>
-    <%= doctor.name %>
+    <%= link_to doctor.name, doctor_path(doctor) %><br>
 <% end %>
