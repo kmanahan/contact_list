@@ -3,12 +3,6 @@ class PatientsController < ApplicationController
 
     def index 
         get_room
-        @patients = Patient.all
-        if params[:expired]
-            @patients.expired(params[:expired])
-        else 
-            @patients = Patient.all 
-        end
     end 
    
     def show
@@ -30,13 +24,30 @@ class PatientsController < ApplicationController
         end
     end 
 
+    # def edit
+    #     get_room
+    # end
+    
+    #   def update
+    #     get_room
+    #     if @patient.update(patient_params)
+    #       redirect_to room_patient_path(@patient)
+    #     else
+    #       render :edit
+    #     end
+    #   end
+    
+    #   def destroy
+    #     get_room
+    #     @patient.destroy
+    #     redirect_to room_patients_path
+    #   end
+    
+
     def expired
-        @patient = Patient.all
-        if params[:id]
-            @patient = expired(params[:id])
-        else 
-            @patient = Patient.all 
-        end
+        @patients = Patient.all
+        @patients = @patients.is_expired
+            render :expired
     end 
     
     private 

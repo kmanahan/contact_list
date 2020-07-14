@@ -6,10 +6,12 @@ class Patient < ApplicationRecord
     has_many :doctors, through: :doctor_patients
     validates_presence_of :first_name
     validates_presence_of :last_name
-    
-    scope :expired, -> { where(expired: true )}
-    
+
     def full_name
         self.first_name + " " + self.last_name
      end 
+
+     def self.is_expired
+        where("expired = ?", true)
+    end 
 end

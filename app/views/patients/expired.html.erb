@@ -1,0 +1,6 @@
+<h1><% @patients.each do |patient| %></h1>
+    <%= patient.full_name %>
+<% end %>
+<% if @patients.blank? %>
+  <h4>Unable to find patients</h4>
+<% end %>
