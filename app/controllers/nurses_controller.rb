@@ -11,7 +11,5 @@ class NursesController < ApplicationController
 
     private 
 
-    def nurse_params 
-        params.require(:nurse).permit(:name, :title, :phone_number, :patient_id)
-    end 
+    
 end 
