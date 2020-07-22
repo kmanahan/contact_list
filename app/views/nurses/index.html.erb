@@ -1,6 +1,6 @@
 <h1>Nurse Directory</h1>
 
-<%= link_to "Nurse with most patients",  nurses_most_path %>
+<%= link_to "Nurse with most patients",  nurses_most_path %><br><br>
 
 <% @nurses.each do |nurse| %>
     <%= link_to nurse.name, nurse_path(nurse) %><br>
