@@ -9,6 +9,11 @@ class NursesController < ApplicationController
         @nurse = Nurse.find_by(id:params[:id])
     end 
 
+    def most
+        @nurse = Nurse.all.sort_by{|n| n.patients.size}.last
+        render :most 
+    end 
+
     private 
 
     

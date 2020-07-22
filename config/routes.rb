@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :doctors, only: [:index, :show]
 
   get '/patient/expired', to: 'patients#expired'
+
+  get '/nurses/most', to: 'nurses#most'
   resources :nurses, only: [:index, :show]
+  
   get '/auth/:provider/callback', to: 'sessions#gitcreate'
+  
 end 
